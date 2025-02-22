@@ -80,6 +80,48 @@ body {
     /* animation: show-loading 1s linear .5s 1 forwards; */
 }
 
+.interact .input-query {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 70%;
+    aspect-ratio: 7/1;
+    background-color: #fff;
+    transform: translate(-50%, 50%);
+    border-radius: 20px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.interact .input-query input {
+    background-color: #1fddc0;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    border: none;
+    flex: 1;
+    padding: 5px 10px;
+}
+
+.interact .input-query .btn-submit-query {
+    background-color: #27b4ea;
+    height: 100%;
+    aspect-ratio: 3/2;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.interact .input-query .btn-submit-query i {
+    transition: color .2s;
+}
+
+.interact .input-query .btn-submit-query:hover i {
+    color: #fff;
+}
+
 @keyframes input-file-on-input {
     0% {
         aspect-ratio: 1/1;
