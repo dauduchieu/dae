@@ -3,3 +3,103 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #f9cb75;
+}
+
+/* Interactive Field */
+
+.interact {
+    flex: 1;
+    position: relative;
+}
+
+.interact input[type="file"] {
+    display: none;
+}
+
+.interact .input-file {
+    position: absolute;
+    width: 50%;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    border-radius: 50px;
+    gap: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    /* animation: input-file-on-input 1s linear 1 forwards; */
+}
+
+.interact .input-file i {
+    font-size: 5em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* animation: input-file-icon-on-input 1s linear 1 forwards; */
+}
+
+.interact .file-name {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(0, -50%);
+    opacity: 0;
+    /* animation: input-file-name-on-input 1s linear 1 forwards; */
+}
+
+@keyframes input-file-on-input {
+    0% {
+        aspect-ratio: 1/1;
+        top: 50%;
+        width: 50%;
+        border-radius: 50px;
+    }
+    100% {
+        aspect-ratio: 7/1;
+        top: 10%;
+        width: 70%;
+        border-radius: 20px;
+    }
+}
+
+@keyframes input-file-icon-on-input {
+    0% {
+        font-size: 5em;
+        left: 50%;
+    }
+    100% {
+        font-size: 2em;
+        left: 10%;
+    }
+}
+
+@keyframes input-file-name-on-input {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.report {
+    flex: 1;
+}
+
+ 
