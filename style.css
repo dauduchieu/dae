@@ -7,7 +7,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    
+
 }
 
 .container {
@@ -39,6 +39,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
+    z-index: 1;
     /* animation: input-file-on-input 1s linear 1 forwards; */
 }
 
@@ -60,6 +61,25 @@ body {
     /* animation: input-file-name-on-input 1s linear 1 forwards; */
 }
 
+.interact .loading {
+    position: absolute;
+    width: 50%;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    border-radius: 50px;
+    gap: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    z-index: 0;
+    opacity: 0;
+    /* animation: show-loading 1s linear .5s 1 forwards; */
+}
+
 @keyframes input-file-on-input {
     0% {
         aspect-ratio: 1/1;
@@ -67,6 +87,7 @@ body {
         width: 50%;
         border-radius: 50px;
     }
+
     100% {
         aspect-ratio: 7/1;
         top: 10%;
@@ -80,6 +101,7 @@ body {
         font-size: 5em;
         left: 50%;
     }
+
     100% {
         font-size: 2em;
         left: 10%;
@@ -90,9 +112,19 @@ body {
     0% {
         opacity: 0;
     }
+
     90% {
         opacity: 0;
     }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes show-loading {
+    0% {}
+
     100% {
         opacity: 1;
     }
@@ -102,4 +134,115 @@ body {
     flex: 1;
 }
 
- 
+/* Loading Animation */
+
+.interact .loading .anim-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 80px 1fr;
+    background: none;
+}
+
+.interact .loading .balls {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1.5fr;
+    grid-template-rows: 40px 40px;
+
+}
+
+.interact .loading .up,
+.interact .loading .down {
+    display: grid;
+    grid-template-columns: repeat(5, 1.5fr);
+    place-items: center;
+}
+
+.interact .loading .up .ball {
+    animation: wave 2s ease-in-out infinite;
+
+    background-color: #eb3ee5;
+}
+
+.interact .loading .down .ball {
+    animation: reverseWave 2s ease-in-out infinite;
+    background-color: #17e8a8;
+
+}
+
+.interact .loading .ball {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+}
+
+.interact .loading .up .ball:nth-child(2) {
+    animation-delay: -0.25s;
+    background-color: #c53ced;
+}
+
+.interact .loading .up .ball:nth-child(3) {
+    animation-delay: -0.5s;
+    background-color: #8f39db;
+}
+
+.interact .loading .up .ball:nth-child(4) {
+    animation-delay: -0.75s;
+    background-color: #7223cb;
+}
+
+.interact .loading .up .ball:nth-child(5) {
+    animation-delay: -1s;
+    background-color: #4427d8;
+}
+
+.interact .loading .down .ball:nth-child(2) {
+    animation-delay: -0.25s;
+    background-color: #1fddc0;
+}
+
+.interact .loading .down .ball:nth-child(3) {
+    animation-delay: -0.5s;
+    background-color: #2fd3d9;
+}
+
+.interact .loading .down .ball:nth-child(4) {
+    animation-delay: -0.75s;
+    background-color: #27b4ea;
+}
+
+.interact .loading .down .ball:nth-child(5) {
+    animation-delay: -1s;
+    background-color: #2887e2;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+
+        transform: translateY(80px);
+    }
+
+    50% {
+
+        transform: translateY(-60px);
+    }
+}
+
+@keyframes reverseWave {
+
+    0%,
+    100% {
+        transform: translateY(-60px);
+    }
+
+    50% {
+
+        transform: translateY(80px);
+    }
+}
